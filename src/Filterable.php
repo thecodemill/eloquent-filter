@@ -17,11 +17,11 @@ trait Filterable
      */
     public function scopeFilter(Builder $query, array $filters = [])
     {
-        $filters = static::filters();
+        $filterHandlers = static::filters();
 
         foreach (static::validFilters($filters) as $attribute => $value) {
-            $query->where(function ($query) use ($filters, $attribute, $value) {
-                $filters[$attribute]($query, $value, $attribute);
+            $query->where(function ($query) use ($filterHandlers, $attribute, $value) {
+                $filterHandlers[$attribute]($query, $value, $attribute);
             });
         }
 

@@ -20,8 +20,8 @@ trait Filterable
         $filters = static::filters();
 
         foreach (static::validFilters($filters) as $attribute => $value) {
-            $query->where(function ($query) use ($filterHandlers, $attribute, $value) {
-                $filterHandlers[$attribute]($query, $value, $attribute);
+            $query->where(function ($query) use ($filters, $attribute, $value) {
+                $filters[$attribute]($query, $value, $attribute);
             });
         }
 

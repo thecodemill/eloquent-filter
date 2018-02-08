@@ -66,6 +66,16 @@ class User
 }
 ```
 
+If using pagination, EloquentFilter allows you to maintain the query parameters in between page requests. To do so, render the pagination links in your Blade template with the addition of the valid filters that are present in the original page request.
+
+```php
+// Paginate models in your controller/repository/etc.
+$users = User::filter($request->all())->paginate();
+
+// In Blade, append only the valid query parameters:
+{{ $users->appends(App\User::validFilters(request()->all()))->links() }}
+```
+
 ## Author
 
 * [Andrew Robinson](https://twitter.com/ap_robinson)

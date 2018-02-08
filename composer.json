@@ -1,0 +1,12 @@
+{
+    "name": "thecodemill/eloquent-filter",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "TheCodeMill\\EloquentFilter\\": "src/"
+        }
+    },
+    "require": {
+        "illuminate/database": "5.*"
+    }
+}

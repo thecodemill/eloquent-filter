@@ -7,6 +7,6 @@
         }
     },
     "require": {
-        "illuminate/database": ">=5.*"
+        "illuminate/database": ">=5.0"
     }
 }
